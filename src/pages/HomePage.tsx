@@ -10,7 +10,7 @@ const HomePage:FC=()=>{
         <div className="container">
             <div className="row">
                 <div className="col-12">
-                    <h1 className="text-center">Hello!</h1>
+                    <h1 className="text-center">Hello!!!</h1>
                     <p className="text-center">{getState.user}</p>
                 </div>
             </div>
