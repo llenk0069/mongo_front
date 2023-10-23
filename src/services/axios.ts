@@ -1,5 +1,6 @@
 import axios, { AxiosInstance, AxiosResponse, InternalAxiosRequestConfig } from "axios";
 import { config } from "process";
+import { userServices } from "./user-services";
 
 
 const baseURL = process.env.NODE_ENV === "development"
@@ -25,7 +26,14 @@ AppIntance.interceptors.response.use((res:AxiosResponse)=>{
     async(error)=>{
         const originalConfig = error.config
         if(error.response.status == 401){
-            console.log('пользователь не авторизирован')
+            console.log('пользователь не авторизирован, trying to refresh')
+            try{
+                await userServices.refresh()
+                return AppIntance.request(originalConfig)
+            }catch(e){
+                console.log('Пользователь не Авторизирован!!!')
+                
+            }
         }
     }
     )

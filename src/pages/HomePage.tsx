@@ -16,6 +16,11 @@ const HomePage:FC=()=>{
         const users = await userServices.getUsers()
         console.log(users)
     }
+
+    const refreshHandel = async ()=>{
+        const tokens = await userServices.refresh()
+        console.log(tokens)
+    }
     return(
         <div className="container">
                     <h1 className="text-center">Hello!!!</h1>
@@ -23,6 +28,7 @@ const HomePage:FC=()=>{
                     <div className="row">
                         <button className="btn btn-success col-4 m-4" onClick={handel}>dispatch</button>
                         <button className="btn btn-info col-4  m-4" onClick={handel2}>users</button>
+                        <button className="btn btn-warning col-4  m-4" onClick={refreshHandel}>refresh</button>
                     </div>            
                 </div>
     )
