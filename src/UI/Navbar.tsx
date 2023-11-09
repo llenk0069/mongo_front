@@ -12,10 +12,10 @@ const Navbar:FC = ()=>{
                     <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                        <a className="nav-link active" aria-current="page" href="#">Home</a>
+                        <a className="nav-link active" aria-current="page" href="/home">Home</a>
                         </li>
                         <li className="nav-item">
-                        <a className="nav-link" href="#">Features</a>
+                        <a className="nav-link" href="/login">Login</a>
                         </li>
                         <li className="nav-item">
                         <a className="nav-link" href="#">Pricing</a>

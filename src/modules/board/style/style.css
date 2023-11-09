@@ -1,0 +1,16 @@
+.cell{
+    height: 100px;
+    width: 100px;
+    border: 1px solid grey
+}
+
+.black{
+    background-color: rgba(94, 218, 172, 0.565);
+}
+.white{
+    background-color: white;
+}
+
+.selected{
+    border-width: 3px;
+}

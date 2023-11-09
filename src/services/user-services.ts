@@ -18,10 +18,10 @@ type refreshData = {
     refreshToken:string
 }
 export const userServices = {
-    login: async ()=>{
+    login: async (name:string, password:string)=>{
         const loginData = await AppIntance.post<loginData>('http://127.0.0.1:3001/login',{
-            name:"test",
-            password:"test"})
+            name,
+            password})
             localStorage.setItem('accessToken', loginData.data.accessToken)
             
         return loginData

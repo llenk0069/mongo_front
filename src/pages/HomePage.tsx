@@ -8,7 +8,7 @@ const HomePage:FC=()=>{
     const dispatch:AppDispatch = useDispatch()
     const getState = useSelector((state:rootState)=>state.main)
     const handel = async ()=>{
-        const tok = await userServices.login()
+        const tok = await userServices.login('test','test')
         dispatch(MainActionCreators.setUserAsync('Alex'))
         console.log(tok)
     }
