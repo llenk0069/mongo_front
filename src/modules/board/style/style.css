@@ -1,7 +1,10 @@
 .cell{
     height: 100px;
     width: 100px;
-    border: 1px solid grey
+    border: 1px solid grey;
+    text-align: center;
+    display: flex;
+    align-items: center;
 }
 
 .black{
@@ -13,4 +16,15 @@
 
 .selected{
     border-width: 3px;
+}
+.board{
+    display: flex;
+    flex-wrap: wrap;
+    width: 800px;
+    margin: 0 auto;
+}
+
+.figure{
+    margin: 0 auto;
+    font-size: 20px;
 }

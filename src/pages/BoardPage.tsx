@@ -1,12 +1,16 @@
 import { FC } from "react";
-import CellComponet from "../modules/board/components/cell";
-import { Cell } from "../modules/board/models/Cell";
+import BoardComponent from "../modules/board/components/BoardComponent";
+import { Board } from "../modules/board/models/Board";
 
 const BoardPage:FC =()=>{
-    const firstCell = new Cell(1,2,'black')
+    const gameBoard = new Board()
+    gameBoard.initCells()
+    gameBoard.addPawns()
+    console.log(gameBoard.cells)
+
     return(
         <div>
-            <CellComponet cell={firstCell} selected = {true}/>
+            <BoardComponent board={gameBoard}/>
         </div>
     )
 }
