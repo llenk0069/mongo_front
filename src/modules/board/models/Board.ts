@@ -18,6 +18,17 @@ export class Board{
         }
     }
 
+    highLightCells(cell:Cell){
+        for(var i = 0; i <= 7; i++){
+            for(var j = 0; j <= 7; j++){
+                const target = this.cells[j][i]
+                if(cell.figure?.canMove(target)){
+                    console.log(target)
+                }
+            }
+        }
+    }
+
     public getCell(x:number, y:number){
         return this.cells[y][x]
     }

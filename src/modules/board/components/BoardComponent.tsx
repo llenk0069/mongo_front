@@ -10,6 +10,10 @@ interface IBoard{
 
 const BoardComponent:FC<IBoard> = ({board})=>{
     const [Active, setActive] = useState<Cell|null>(null)
+    const click = (cell:Cell)=>{
+        setActive(cell)
+        board.highLightCells(cell)
+    }
     console.log(Active)
     return(
         <div className="board">
@@ -18,7 +22,7 @@ const BoardComponent:FC<IBoard> = ({board})=>{
                     <CellComponet 
                         cell={j} 
                         key={j.id} 
-                        onClick={setActive}
+                        onClick={click}
                         selected={Active?.x===j.x && Active.y === j.y}/>
                 )
             )}
