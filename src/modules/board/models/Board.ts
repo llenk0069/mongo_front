@@ -22,9 +22,14 @@ export class Board{
         for(var i = 0; i <= 7; i++){
             for(var j = 0; j <= 7; j++){
                 const target = this.cells[j][i]
-                if(cell.figure?.canMove(target)){
-                    console.log(target)
-                }
+                target.available = !! cell.figure?.canMove(target)
+                // if(cell.figure?.canMove(target)){
+                //     target.available = true
+                //     console.log(target)
+                // }
+                // else{
+                //     target.available = false
+                // }
             }
         }
     }
