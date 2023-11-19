@@ -3,6 +3,7 @@ function animal(){
     console.log('I am animal')
     console.log(this)
 }
+
 animal.prototype.legs = 4
 animal.prototype.tail = true
 animal.prototype.color = 'green'

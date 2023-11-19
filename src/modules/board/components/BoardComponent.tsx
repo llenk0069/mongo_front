@@ -1,4 +1,4 @@
-import { FC, useState, ReactNode, ReactChildren, ReactChild } from "react";
+import { FC, useState, ReactNode, ReactChildren, ReactChild, useEffect } from "react";
 import {Board } from "../models/Board";
 import { Cell } from "../models/Cell";
 import CellComponet from "./CellComponent";
@@ -9,12 +9,26 @@ interface IBoard{
 }
 
 const BoardComponent:FC<IBoard> = ({board})=>{
-    const [Active, setActive] = useState<Cell|null>(null)
+    const [ActiveCell, setActive] = useState<Cell|null>(null)
     const click = (cell:Cell)=>{
-        setActive(cell)
-        board.highLightCells(cell)
+        if(ActiveCell && ActiveCell !== cell && ActiveCell.figure?.canMove(cell)){
+            const figure = ActiveCell.figure
+            ActiveCell.moveFigure(cell)
+            setActive(null)
+            board.highLightCells(cell)
+        }else{
+            setActive(cell)
+            board.highLightCells(cell)
+        }
     }
-    console.log(Active)
+
+ useEffect(()=>{
+    // board.highLightCells(ActiveCell)
+    // console.log(ActiveCell)
+    // console.log('change')
+ },[ActiveCell])
+
+    console.log(ActiveCell)
     return(
         <div className="board">
             {board.cells.map((i,index)=>
@@ -23,7 +37,7 @@ const BoardComponent:FC<IBoard> = ({board})=>{
                         cell={j} 
                         key={j.id} 
                         onClick={click}
-                        selected={Active?.x===j.x && Active.y === j.y}/>
+                        selected={ActiveCell?.x===j.x && ActiveCell.y === j.y}/>
                 )
             )}
         </div>

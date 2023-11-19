@@ -4,6 +4,7 @@ export class Figure{
     cell:Cell
     name:string
     color:string
+    logo:any
     
     constructor(cell:Cell, color:'black'| 'white'){
         this.cell = cell
@@ -20,5 +21,10 @@ export class Figure{
             return false
         }
         return true
+    }
+
+
+    move(){
+
     }
 }

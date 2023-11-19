@@ -18,11 +18,11 @@ export class Board{
         }
     }
 
-    highLightCells(cell:Cell){
+    highLightCells(cell:Cell|null){
         for(var i = 0; i <= 7; i++){
             for(var j = 0; j <= 7; j++){
                 const target = this.cells[j][i]
-                target.available = !! cell.figure?.canMove(target)
+                target.available = !! cell?.figure?.canMove(target)
                 // if(cell.figure?.canMove(target)){
                 //     target.available = true
                 //     console.log(target)

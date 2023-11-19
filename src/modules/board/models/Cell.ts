@@ -19,4 +19,27 @@ export class Cell{
         this.figure = null
         this.available = false
     }
+
+    setFigure(figure:Figure){
+        figure.cell = this
+        this.figure = figure
+    }
+    moveFigure(target:Cell){
+        if(this.figure && this.figure.canMove(target)){
+            this.figure.move()
+            target.setFigure(this.figure)
+            this.figure = null
+        }
+    }
+    isEmpty(){
+        return this.figure ? false : true
+    }
+    isEnemy(target:Cell){
+        if(target.figure){
+            if(this.figure?.color !== target.figure?.color){
+                return true
+            }
+        }
+        return false
+    }
 }

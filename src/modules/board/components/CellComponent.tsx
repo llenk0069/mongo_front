@@ -17,9 +17,11 @@ const CellComponet:FC<ICell> = ({cell,onClick, selected})=>{
         onClick(cell)
     }
     return(
-        <div className={classes} onClick={handle}>
-            {cell.figure && <h5 className="figure ">{cell.figure.name}</h5>}
-            {cell.available && <div className="available">x</div>}
+        <div className={classes} onClick={handle}
+            style = {{background: cell.available && cell.figure ? 'rgb(18, 255, 125)' :''}}
+        >
+            {!cell.figure && cell.available && <div className="available"></div>}
+            {cell.figure?.logo && <img src={cell.figure.logo}></img>}
         </div>
     )
 }

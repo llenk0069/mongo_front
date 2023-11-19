@@ -5,13 +5,14 @@
     text-align: center;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .black{
-    background-color: rgba(94, 218, 172, 0.565);
+    background-color: rgba(59, 136, 108, 0.565);
 }
 .white{
-    background-color: white;
+    background-color: rgba(94, 218, 172, 0.565);
 }
 
 .selected{
@@ -31,4 +32,9 @@
 
 .available{
     margin: 0 auto;
-}
+    border: 1px solid rgb(6, 169, 9);
+    background-color: rgb(6, 169, 9);
+    border-radius: 50%;
+    height: 10px;
+    width: 10px;
+}    
