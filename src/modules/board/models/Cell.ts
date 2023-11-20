@@ -44,11 +44,30 @@ export class Cell{
     }
 
     isVerticalEmpty(target:Cell){
-        const EmptyCells = []
-        var i = target.y
-        while(i<=7 && this.board.getCell(target.x, i).isEmpty()){
-            EmptyCells.push(this.board.getCell(target.x, i))
+        const min = Math.min(this.y, target.y)
+        const max = Math.max(this.y, target.y)
+        if(this.x !== target.x){
+            return false
         }
-        console.log(EmptyCells)
+        for( var i = min + 1; i < max; i ++){
+            if(!this.board.getCell(this.x, i).isEmpty()){
+                return false
+            }
+        }
+        return true
+    }
+
+    isHorizontalEmpty(target:Cell){
+        const min = Math.min(this.x, target.x)
+        const max = Math.max(this.x, target.x)
+        if(this.y !== target.y){
+            return false
+        }
+        for( var i = min + 1; i < max; i ++){
+            if(!this.board.getCell(i,this.y).isEmpty()){
+                return false
+            }
+        }
+        return true
     }
 }

@@ -1,5 +1,6 @@
 import { Cell } from "./Cell";
 import { Pawn } from "./figures/Pawn";
+import { Rook } from "./figures/Rook";
 
 export class Board{
     cells:Cell[][] = []
@@ -46,5 +47,10 @@ export class Board{
         for(var i = 0; i <= 7; i++){
             new Pawn( this.getCell(i,6),'white')
         }
+    }
+
+    public addRooks(){
+        new Rook(this.getCell(0,7),'white')
+        new Rook(this.getCell(7,7),'white')
     }
 }

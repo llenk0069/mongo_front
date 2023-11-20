@@ -6,6 +6,7 @@ const BoardPage:FC =()=>{
     const gameBoard = new Board()
     gameBoard.initCells()
     gameBoard.addPawns()
+    gameBoard.addRooks()
     console.log(gameBoard.cells)
 
     return(

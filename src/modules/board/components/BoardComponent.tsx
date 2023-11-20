@@ -19,7 +19,6 @@ const BoardComponent:FC<IBoard> = ({board})=>{
         }else{
             setActive(cell)
             board.highLightCells(cell)
-            cell.isVerticalEmpty(cell)
         }
     }
 
