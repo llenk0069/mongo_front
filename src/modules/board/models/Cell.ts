@@ -42,4 +42,13 @@ export class Cell{
         }
         return false
     }
+
+    isVerticalEmpty(target:Cell){
+        const EmptyCells = []
+        var i = target.y
+        while(i<=7 && this.board.getCell(target.x, i).isEmpty()){
+            EmptyCells.push(this.board.getCell(target.x, i))
+        }
+        console.log(EmptyCells)
+    }
 }
