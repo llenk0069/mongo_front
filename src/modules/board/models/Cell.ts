@@ -70,4 +70,22 @@ export class Cell{
         }
         return true
     }
+    isDiagonalEmpty(target:Cell){
+        const absY = Math.abs(this.y-target.y)
+        const absX = Math.abs(this.x-target.x)
+
+        if( absX !== absY){
+            return false
+        }
+        const dx = this.x < target.x ? 1 : -1
+        const dy = this.y < target.y ? 1 : -1
+
+        
+        for(var i = 1 ; i < absX; i ++){
+            if(!this.board.getCell(this.x + dx * i, this.y + dy * i).isEmpty()){
+                return false
+            }
+        }
+        return true
+    }
 }

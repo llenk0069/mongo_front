@@ -1,4 +1,5 @@
 import { Cell } from "./Cell";
+import { Bishop } from "./figures/Bishop";
 import { Pawn } from "./figures/Pawn";
 import { Rook } from "./figures/Rook";
 
@@ -52,5 +53,10 @@ export class Board{
     public addRooks(){
         new Rook(this.getCell(0,7),'white')
         new Rook(this.getCell(7,7),'white')
+    }
+
+    public addBishop(){
+        new Bishop(this.getCell(2,7),'white')
+        new Bishop(this.getCell(5,7),'white')
     }
 }
